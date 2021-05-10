@@ -44,24 +44,37 @@
 <body>
 <nav>
     <ul>
-        <li><a class="active" href="#home" style="color: #000000">Inicio</a></li>
-        @auth()
-            <li><a href="#news">Clientes</a></li>
-            <li><a href="#news">Facturas</a></li>
-            <li><a href="#contact">Empleados</a></li>
-        @endauth
-        @guest()
-            <li style="float: right"><a href="{{route("register")}}">Registrar</a></li>
-            <li style="float: right;"><a href="{{route("login")}}">Login</a></li>
-        @endguest
-        @auth()
-            <li style="float: right;">
-                <form id="logout" method="post" action="{{route("logout")}}">
-                    @csrf
-                    <a href="javascript:{}" onclick="document.getElementById('logout').submit();">Log Out</a>
-                </form>
-            </li>
-        @endauth
+        <div class="flex flex-row justify-between p-1 ">
+            <div>
+                @guest()
+                    <li><a href="#home"> </a></li>
+                @endguest
+                @auth()
+                    <li><a class="active" href="#home" style="color: #000000">Inicio</a></li>
+                    <li><a href="#news">Clientes</a></li>
+                    <li><a href="#news">Facturas</a></li>
+                    <li><a href="#contact">Empleados</a></li>
+                @endauth
+            </div>
+            <div>
+                <h1 class="text-4xl text-white @auth mr-40 @endauth " >Empresa</h1>
+            </div>
+            <div>
+
+                @guest()
+                    <li><a href="{{route("register")}}">Registrar</a></li>
+                    <li><a href="{{route("login")}}">Login</a></li>
+                @endguest
+                @auth()
+                    <li>
+                        <form id="logout" method="post" action="{{route("logout")}}">
+                            @csrf
+                            <a href="javascript:{}" onclick="document.getElementById('logout').submit();">Log Out</a>
+                        </form>
+                    </li>
+                @endauth
+            </div>
+        </div>
     </ul>
 </nav>
 <div style="padding: 20px">
