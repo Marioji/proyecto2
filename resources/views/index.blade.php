@@ -47,7 +47,7 @@
         <div class="flex flex-row justify-between p-1 ">
             <div>
                 @guest()
-                    <li><a href="#home"> </a></li>
+                    <li><a> </a></li>
                 @endguest
                 @auth()
                     <li><a class="active" href="#home" style="color: #000000">Inicio</a></li>
