@@ -42,24 +42,16 @@
     </style>
 </head>
 <body>
-<nav>
+<nav >
     <ul>
-        <div class="flex flex-row justify-between p-1 ">
+        <div class="flex flex-row justify-between p-1 p-3">
             <div>
-                @guest()
-                    <li><a> </a></li>
-                @endguest
-                @auth()
-                    <li><a class="active" href="#home" style="color: #000000">Inicio</a></li>
-                    <li><a href="#news">Clientes</a></li>
-                    <li><a href="#news">Facturas</a></li>
-                    <li><a href="#contact">Empleados</a></li>
-                @endauth
+                <img style="width: 125px" src="{{asset('imagenes/logo.png')}}" alt="logo">
             </div>
-            <div>
+            <div style=" display: flex; align-items: center;">
                 <h1 class="text-4xl text-white @auth mr-40 @endauth " >Empresa</h1>
             </div>
-            <div>
+            <div style=" display: flex; align-items: center;">
 
                 @guest()
                     <li><a href="{{route("register")}}">Registrar</a></li>
@@ -77,6 +69,22 @@
         </div>
     </ul>
 </nav>
+@auth()
+    <div class="h-14 pl-2 bg-gray-300" style=" display: flex; align-items: center;">
+        <button class="bg-gray-600 hover:bg-gray-800 text-white font-bold py-2 px-4 rounded-full mr-2">
+            Clientes
+        </button>
+        <button class="bg-gray-600 hover:bg-gray-800 text-white font-bold py-2 px-4 rounded-full mr-2">
+            Facturas
+        </button>
+        <button class="bg-gray-600 hover:bg-gray-800 text-white font-bold py-2 px-4 rounded-full mr-2">
+            Empleados
+        </button>
+        <button class="bg-gray-600 hover:bg-gray-800 text-white font-bold py-2 px-4 rounded-full ">
+            Idiomas
+        </button>
+    </div>
+@endauth
 <div style="padding: 20px">
     @guest()
         <h3>Bienvenido, inicia sesión para acceder</h3>
@@ -85,5 +93,10 @@
         <h3>Hola de nuevo, {{auth()->user()->name}}</h3>
     @endauth
 </div>
+<footer class="bg-gray-300 absolute inset-x-0 bottom-0 h-16" style=" display: flex; align-items: center;" >
+    <div class="p-2" >
+        Creado para CPIFP Los Enlaces
+    </div>
+</footer>
 </body>
 </html>
