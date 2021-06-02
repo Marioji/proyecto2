@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Models\Factura;
 
 class FacturaSeeder extends Seeder
 {
@@ -13,6 +14,6 @@ class FacturaSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Factura::factory()->count(25)->create();
     }
 }
